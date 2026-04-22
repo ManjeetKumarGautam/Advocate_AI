@@ -140,7 +140,7 @@ async def ask(query: Query):
 
     query_emb = get_embedding(query.question)
 
-    # 🔥 Step 1: Find best file
+    #  Step 1: Find best file
     best_file = None
     best_score = float("inf")
 
@@ -153,7 +153,7 @@ async def ask(query: Query):
     if not best_file:
         raise HTTPException(400, "No relevant file found")
 
-    # 🔥 Step 2: Load that file's index
+    #  Step 2: Load that file's index
     index_file, text_file = get_paths(best_file)
 
     if not os.path.exists(index_file):
@@ -227,4 +227,4 @@ def delete_file(filename: str):
 
 @app.get("/")
 def root():
-    return {"msg": "Auto-Routing RAG Running 🚀"}
+    return {"msg": "Auto-Routing RAG Running..."}
